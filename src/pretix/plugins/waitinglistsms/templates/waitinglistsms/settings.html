@@ -1,0 +1,27 @@
+{% extends "pretixcontrol/event/settings_base.html" %}
+{% load i18n bootstrap3 %}
+
+{% block title %}{% trans "Waiting list SMS" %}{% endblock %}
+
+{% block inside %}
+    <h1>{% trans "Waiting list SMS" %}</h1>
+    <form action="" method="post" class="form-horizontal">
+        {% csrf_token %}
+        {% bootstrap_form_errors form %}
+        {% bootstrap_field form.waitinglistsms_enabled layout="control" %}
+        {% bootstrap_field form.waitinglistsms_provider layout="control" %}
+        {% bootstrap_field form.waitinglistsms_from layout="control" %}
+        {% bootstrap_field form.waitinglistsms_pingram_api_key layout="control" %}
+        {% bootstrap_field form.waitinglistsms_pingram_type layout="control" %}
+        {% bootstrap_field form.waitinglistsms_pingram_base_url layout="control" %}
+        {% bootstrap_field form.waitinglistsms_twilio_account_sid layout="control" %}
+        {% bootstrap_field form.waitinglistsms_twilio_auth_token layout="control" %}
+        {% bootstrap_field form.waitinglistsms_webhook_url layout="control" %}
+        {% bootstrap_field form.waitinglistsms_message layout="control" %}
+        <div class="form-group submit-group">
+            <button type="submit" class="btn btn-primary btn-save">
+                {% trans "Save" %}
+            </button>
+        </div>
+    </form>
+{% endblock %}
